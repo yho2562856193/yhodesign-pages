@@ -1,0 +1,33 @@
+/* One native scroll surface, from the original handwriting into the complete archive. */
+:root{--portal-matte:#f5f5f5}
+:root[data-theme=dark]{--portal-matte:#101012}
+body.home-page{background:var(--portal-matte);--bg:var(--portal-matte)}
+.home-work-scene{position:relative;isolation:isolate;overflow-anchor:none}
+.portal-runway{height:130svh;position:relative;pointer-events:none}
+.portal-opening{position:fixed;inset:0;z-index:3;height:100svh;overflow:hidden;pointer-events:none}
+.portal-video-backdrop{position:absolute;inset:0;background:var(--portal-matte) no-repeat;overflow:hidden}
+.portal-video{position:absolute;max-width:none;object-fit:fill;display:block;pointer-events:none}
+.portal-poster{position:absolute;inset:0;width:100%;height:100%;max-width:none;opacity:0;pointer-events:none;contain:strict}
+.portal-poster :is([data-poster-field],[data-vector-backing]){fill:var(--portal-matte)}
+.portal-film-control{position:absolute;top:50%;left:50%;width:min(88vw,1060px);height:min(30vh,300px);transform:translate(-50%,-50%);background:transparent;pointer-events:auto;touch-action:pan-y;border-radius:36px;cursor:pointer}
+.portal-film-control:active:not(:disabled){transform:translate(-50%,-50%)}
+.portal-explore{position:absolute;left:50%;top:69%;transform:translateX(-50%);display:flex;align-items:center;gap:.65em;min-height:48px;padding:10px 18px;background:transparent;border-radius:999px;font-size:17px;font-weight:500;line-height:1.4;letter-spacing:-.015em;color:#525257;white-space:nowrap;pointer-events:auto;touch-action:pan-y}
+.portal-explore:hover{color:#1d1d1f;background:#00000004}.portal-explore:active:not(:disabled){transform:translateX(-50%) scale(.97)}
+.portal-explore span{font-size:21px;font-weight:400}
+.portal-work{position:relative;z-index:1;display:flow-root;background:#f5f5f7;transform-origin:top center}
+[data-theme=dark] .portal-work{background:var(--portal-matte)}
+[data-theme=dark] .portal-explore{color:var(--muted,#aaaab1)}
+[data-theme=dark] .portal-explore:hover{color:var(--ink,#f5f5f7);background:#ffffff10}
+/* A sparse archive still needs enough scroll range to clear the portal seam. */
+.portal-work{min-block-size:100vh;min-block-size:100dvh}
+.portal-work .work-tile{opacity:1;transform:none}
+.portal-text-fallback{display:none}
+.portal-simple .portal-opening{position:absolute;inset:0}
+.portal-simple .portal-work{transform:none!important}
+.portal-simple .portal-film-control{display:none}
+.portal-missing-poster .portal-poster{display:none}
+.portal-missing-poster .portal-text-fallback{display:block;position:absolute;left:0;right:0;top:42%;text-align:center;font-size:clamp(40px,8vw,100px);letter-spacing:-.055em;font-weight:600}
+.home-work-scene~*{position:relative}
+@media(max-width:767px){.portal-runway{height:100svh}.portal-explore{top:64%;font-size:16px}.portal-film-control{height:25vh;border-radius:24px}}
+@media(prefers-reduced-motion:reduce){.portal-runway{height:100svh}.portal-opening{position:absolute}.portal-poster{opacity:1}.portal-video-backdrop,.portal-film-control{display:none}.portal-work{transform:none}}
+@media print{.portal-runway{display:none}.portal-work{transform:none!important}}

@@ -1,0 +1,21 @@
+Interactive lanyard scene
+========================
+
+The scene is implemented for Haocong YE's portfolio with Three.js and Rapier.
+The slotted badge, rounded clasp, ribbon, camera setup and material treatment
+are inspired by the React Bits Lanyard component by David Haz:
+https://github.com/DavidHDev/react-bits
+https://reactbits.dev/components/lanyard
+
+The current React Bits implementation uses procedural Three.js surfaces;
+the older card.glb and lanyard.png assets are no longer published at their
+former main-branch paths. The portfolio therefore builds its badge geometry
+locally and does not depend on the old model, another person's portrait,
+another person's badge art, a remote CDN, or a remote scene service.
+
+The React Bits licence is included alongside this file as
+REACT-BITS-LICENSE.txt (MIT with Commons Clause, David Haz 2026).
+
+The portrait used on the badge is an existing, user-provided portfolio asset.
+Three.js is MIT-licensed; Rapier is Apache-2.0-licensed. Their licences are
+included as THREE-LICENSE.txt and RAPIER-LICENSE.txt alongside this file.

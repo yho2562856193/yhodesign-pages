@@ -1,0 +1,378 @@
+/* Theme-independent header geometry. The mark remains available on narrow screens. */
+#theme-toggle {
+  flex: 0 0 var(--tap-size);
+  width: var(--tap-size);
+  height: var(--tap-size);
+  background: #ffffffb8;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+#theme-toggle:hover { background: #fff; }
+.theme-symbol { display: grid; place-items: center; flex: none; line-height: 0; }
+.theme-symbol > .icon { width: 20px; height: 20px; }
+
+@media (max-width: 480px) {
+  .header:has(#theme-toggle) .header-actions { gap: 6px; }
+  .header:has(#theme-toggle) .contact-pill {
+    width: var(--tap-size);
+    height: var(--tap-size);
+    min-width: var(--tap-size);
+    min-height: var(--tap-size);
+    padding: 0;
+    justify-content: center;
+    font-size: 0;
+  }
+  .header:has(#theme-toggle) .contact-pill > span { font-size: 16px; }
+}
+@media (max-width: 360px) {
+  .header:has(#theme-toggle) .brand-name { display: none; }
+}
+@media (forced-colors: active) {
+  #theme-toggle {
+    background: ButtonFace;
+    color: ButtonText;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Keep screen appearance out of printed résumés. */
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #101012;
+    --surface: #1c1c1e;
+    --ink: #f5f5f7;
+    --muted: #b7b7bf;
+    --line: #38383e;
+    --blue: #93c7ff;
+    --soft-blue: #253b53;
+    --button-fill: #0b60b9;
+    --button-hover: #146dc7;
+    --button-ink: #fff;
+    --control-fill: #28282d;
+    --control-hover: #34343b;
+    --selected-fill: #293d55;
+    --selected-ink: #c5e0ff;
+    --panel-bg: rgb(28 28 30 / .90);
+    --panel-border: rgb(255 255 255 / .13);
+    --panel-shadow: inset 0 1px 0 rgb(255 255 255 / .045), 0 8px 24px rgb(0 0 0 / .27);
+    --panel-shadow-hover: inset 0 1px 0 rgb(255 255 255 / .075), 0 14px 36px rgb(0 0 0 / .40);
+    --media-matte: #17171a;
+    background-color: var(--bg);
+  }
+
+  /* Fixed shell, menus, controls and overlays. Navigation glass has its own material. */
+  :root[data-theme="dark"] ::selection { background: var(--selected-fill); color: var(--ink); }
+  :root[data-theme="dark"] :focus-visible:not(:is(.nav a, .case-section-nav a)) {
+    outline-color: var(--blue);
+  }
+  :root[data-theme="dark"] :is(.icon-button, .button.secondary, .mini-button, .filter-chip) {
+    background-color: var(--control-fill);
+    color: var(--ink);
+  }
+  :root[data-theme="dark"] :is(.icon-button, .button.secondary, .mini-button, .filter-chip):hover:not(:disabled) {
+    background-color: var(--control-hover);
+  }
+  :root[data-theme="dark"] .button:not(.secondary),
+  :root[data-theme="dark"] .copy-check {
+    background-color: var(--button-fill);
+    color: var(--button-ink);
+  }
+  :root[data-theme="dark"] .button:not(.secondary):hover:not(:disabled) {
+    background-color: var(--button-hover);
+  }
+  :root[data-theme="dark"] .filter-chip[aria-pressed="true"] {
+    background-color: var(--selected-fill);
+    color: var(--selected-ink);
+  }
+  :root[data-theme="dark"] :is(.search-toggle, .language-toggle, #theme-toggle, .contact-pill, #back-top) {
+    background: var(--control-fill);
+    border-color: var(--panel-border);
+    color: var(--ink);
+  }
+  :root[data-theme="dark"] :is(.search-toggle, .language-toggle, #theme-toggle, .contact-pill, #back-top):hover {
+    background: var(--control-hover);
+  }
+  :root[data-theme="dark"] :is(.skip-link, #search-dialog, #image-dialog) {
+    background: var(--surface);
+    color: var(--ink);
+  }
+  :root[data-theme="dark"] dialog::backdrop { background: rgb(0 0 0 / .72); }
+  :root[data-theme="dark"] .lightbox-scroll { background: var(--media-matte); }
+  :root[data-theme="dark"] #site-search::placeholder { color: var(--muted); }
+  :root[data-theme="dark"] :is(.search-result:hover, .search-result:focus-visible) {
+    background: var(--control-fill);
+  }
+  :root[data-theme="dark"] .search-hit {
+    background: var(--selected-fill);
+    outline-color: var(--blue);
+  }
+  :root[data-theme="dark"] .toast {
+    background: var(--control-fill);
+    color: var(--ink);
+    box-shadow: var(--panel-shadow-hover);
+  }
+  :root[data-theme="dark"] #language-options {
+    background: var(--panel-bg);
+    border-color: var(--panel-border);
+    box-shadow: var(--panel-shadow-hover);
+  }
+  :root[data-theme="dark"] #language-options button:hover { background: var(--control-hover); }
+  :root[data-theme="dark"] #language-options button[aria-pressed="true"] {
+    background: var(--selected-fill);
+    color: var(--selected-ink);
+  }
+
+  /* Work, case studies and the screen résumé. Image colours are intrinsic. */
+  :root[data-theme="dark"] :is(.work-archive, .original-case) {
+    background: radial-gradient(ellipse 90% 550px at 85% 0, #202025 0%, transparent 84%);
+  }
+  :root[data-theme="dark"] .work-filter { color: var(--muted); }
+  :root[data-theme="dark"] .work-filter:hover { background: var(--control-fill); color: var(--ink); }
+  :root[data-theme="dark"] .work-filter[aria-pressed="true"] {
+    background: var(--selected-fill);
+    color: var(--selected-ink);
+  }
+  :root[data-theme="dark"] .work-filters.has-filter-indicator .work-filter[aria-pressed="true"] {
+    background: transparent;
+    color: var(--selected-ink);
+  }
+  :root[data-theme="dark"] .work-filter-indicator {
+    background: var(--selected-fill);
+    box-shadow: inset 0 0 0 1px var(--panel-border);
+  }
+  :root[data-theme="dark"] :is(.work-stage, .work-tile-meta, .case-award-year,
+      .case-award-work, .case-section-heading > span, .case-artwork-heading > span,
+      .case-group-heading > span, .case-page-note, .case-gallery-hint, .case-grid-caption,
+      .work-tile-copy > p:not(.work-tile-meta), .case-description, .case-live-experience p,
+      .case-project-notes p, .case-inclusion details p, .case-proposal section p, .case-facts dt,
+      .case-resource-note, .case-publications > p, .case-publications > a > span:first-child,
+      .case-next > span:first-child, .case-facts dd, .print-resume p, .print-date) {
+    color: var(--muted);
+  }
+  :root[data-theme="dark"] :is(.case-awards, .case-inclusion, .case-facts,
+      .case-publications, .case-publications > a, .print-resume h2) { border-color: var(--line); }
+  :root[data-theme="dark"] :is(.case-inclusion summary > span:last-child,
+      .case-publications a:hover strong, .print-resume a:not(.button)) { color: var(--blue); }
+  :root[data-theme="dark"] .case-media-grid > .case-figure .original-image { background: var(--media-matte); }
+  :root[data-theme="dark"] .print-resume { background: var(--surface); }
+
+  /* Honors uses a dark gallery around the original certificate paper. */
+  :root[data-theme="dark"] .honors-exhibition { background: var(--bg); color: var(--ink); }
+  :root[data-theme="dark"] .honors-stage {
+    background: radial-gradient(ellipse at 50% 46%, #28282d 0%, transparent 68%);
+  }
+  :root[data-theme="dark"] :is(.honors-empty, .honors-caption-meta, .honors-caption-work,
+      .honors-counter, .honors-directory-heading > span, .honors-directory-heading > p,
+      .honors-directory-count, .honors-directory-empty, .honors-list-year,
+      .honors-list-work, .honors-list-copy p, .honors-list-material, .honors-list-arrow,
+      .honors-list-certificate) { color: var(--muted); }
+  :root[data-theme="dark"] :is(.honors-caption-level, .honors-related a) { color: var(--blue); }
+  :root[data-theme="dark"] .honors-related a { background: var(--selected-fill); }
+  :root[data-theme="dark"] .honors-related a:hover { background: var(--control-hover); }
+  :root[data-theme="dark"] :is(.honors-step, .honors-auto) {
+    background: var(--control-fill);
+    color: var(--ink);
+    box-shadow: var(--panel-shadow);
+  }
+  :root[data-theme="dark"] :is(.honors-step, .honors-auto, .honors-list-certificate):hover:not(:disabled) {
+    background: var(--control-hover);
+    color: var(--ink);
+  }
+  :root[data-theme="dark"] .honors-list { background: var(--panel-bg); box-shadow: var(--panel-shadow); }
+  :root[data-theme="dark"] .honors-list-item { border-color: var(--line); }
+  :root[data-theme="dark"] .honors-list-item:hover::before { background: var(--control-fill); }
+  :root[data-theme="dark"] .honors-list-item.is-active::before { background: var(--selected-fill); }
+  :root[data-theme="dark"] :is(.honors-list-name, .honors-list-copy h3, .honors-list-level) {
+    color: var(--ink);
+  }
+
+  /* The white printed badge and transparent renderer stay physically consistent. */
+  :root[data-theme="dark"] body.about-page { --bg: inherit; background: var(--bg); }
+  :root[data-theme="dark"] .about-intro {
+    background: radial-gradient(ellipse 45% 70% at 50% 31%, #27272e, transparent 80%), var(--bg);
+  }
+  :root[data-theme="dark"] .about-curtain {
+    background: var(--surface);
+    box-shadow: 0 -16px 55px rgb(0 0 0 / .23);
+  }
+  :root[data-theme="dark"] .about-page .site-footer { background: var(--bg); }
+  :root[data-theme="dark"] :is(.about-card-instruction, .about-intro-topline,
+      .about-intro-topline p > span, .about-intro-bottom, .about-intro-bottom > button,
+      .about-profile-facts dt, .about-profile-facts dd, .about-capability-grid .about-capability-tools,
+      .about-course-groups dt, .about-entry-role, .about-campus summary .about-entry-role,
+      .about-overview-copy > p, .about-education-note, .about-capability-grid p,
+      .about-practice-copy > p:not(.about-entry-role), .about-campus-detail > p, .about-focus-grid p,
+      .about-life-grid p, .about-life-intro, .about-life-learning, .about-languages dd,
+      .about-recognition-top > span, .about-education-recognition-top, .about-award-arrow) { color: var(--muted); }
+  :root[data-theme="dark"] .about-intro-bottom > button:hover { color: var(--ink); }
+  :root[data-theme="dark"] .about-intro .about-flip-button {
+    background: var(--panel-bg);
+    border-color: var(--panel-border);
+    color: var(--ink);
+    box-shadow: var(--panel-shadow);
+    backdrop-filter: var(--panel-blur);
+    -webkit-backdrop-filter: var(--panel-blur);
+  }
+  :root[data-theme="dark"] .about-intro .about-flip-button:hover { background: var(--control-hover); }
+  :root[data-theme="dark"] :is(.about-overview-identity .about-profile-lead,
+      .about-academic-metrics strong, .about-language-score,
+      .about-campus details[open] .about-details-toggle) { color: var(--ink); }
+  :root[data-theme="dark"] .about-practice-copy > .about-entry-learning { color: var(--muted) !important; }
+  :root[data-theme="dark"] :is(.about-evidence-links > a, .about-education-recognition-top a,
+      .about-award-card strong, .about-campus summary:hover .about-details-toggle) { color: var(--blue); }
+  :root[data-theme="dark"] .about-focus-grid > article { border-color: var(--line); }
+  :root[data-theme="dark"] :is(.about-tool-chip, .about-tool-chip.is-method, .about-academic-honours > span,
+      .about-project-button) {
+    background: var(--control-fill);
+    border-color: var(--panel-border);
+    color: var(--ink);
+  }
+  :root[data-theme="dark"] :is(.about-academic-honours > span:first-child, .about-project-button) {
+    background: var(--selected-fill);
+    color: var(--selected-ink);
+    box-shadow: none;
+  }
+  :root[data-theme="dark"] .about-project-button:hover { background: var(--control-hover); box-shadow: none; }
+  :root[data-theme="dark"] .about-tool-logo {
+    padding: 3px;
+    border-radius: 5px;
+    background: #f8f8fa;
+  }
+  :root[data-theme="dark"] .case-award-logo {
+    padding: 7px;
+    border-radius: 10px;
+    background: #f8f8fa;
+  }
+  :root[data-theme="dark"] .case-award-logo img { max-width: 100%; }
+
+  /* Contact details use the same materials as work and About. */
+  :root[data-theme="dark"] :is(.contact-profile-email, .contact-channel-value,
+      .contact-resume-card strong, .contact-design-focus) { color: var(--ink); }
+  :root[data-theme="dark"] :is(.contact-mail-address h2, .contact-channel-card h2,
+      .contact-channel-value .contact-country-code, .contact-resume-card > span > span,
+      .contact-profile-opening > p, .contact-english-name, .contact-personal-bio,
+      .contact-personal-facts dt, .contact-personal-facts dd,
+      .contact-personal-facts dd > span, .contact-academic > div > span, .contact-language-panel dt,
+      .contact-language-panel dd, .contact-profile-links > a > span > span, .contact-profile-links .icon) {
+    color: var(--muted);
+  }
+  :root[data-theme="dark"] :is(.contact-resume-card .icon, .contact-academic > a) { color: var(--blue); }
+  :root[data-theme="dark"] :is(.contact-personal, .contact-personal-facts,
+      .contact-academic, .contact-language-panel dl > div) { border-color: var(--line); }
+
+  /* Journey is available in the local preview and keeps its photography intact. */
+  :root[data-theme="dark"] .journey-page { background: var(--bg); }
+  :root[data-theme="dark"] .journey-film {
+    --journey-ink: var(--ink);
+    --journey-secondary: var(--muted);
+    --journey-line: var(--line);
+  }
+  :root[data-theme="dark"] .journey-page .header .brand { background: var(--panel-bg); }
+  :root[data-theme="dark"] :is(.journey-sticky, .journey-reading-wash) { background: var(--bg); color: var(--ink); }
+  :root[data-theme="dark"] :is(.journey-portal, .journey-type-field, .journey-chapter-body,
+      .journey-chapter-menu > div, .journey-action-card) { background: var(--surface); color: var(--ink); }
+  :root[data-theme="dark"] :is(.journey-directory, .journey-phase-group, .journey-phase-nav .journey-skip,
+      [data-scene-mode="pullback"] .journey-entry-left, [data-scene-mode="pullback"] .journey-entry-right) {
+    background: var(--panel-bg);
+  }
+  :root[data-theme="dark"] :is(.journey-chapter-menu > div, .journey-result-card li) { border-color: var(--line); }
+  :root[data-theme="dark"] :is(.journey-opening > .eyebrow, .journey-process-heading,
+      .typographic-scene .journey-location, .typographic-scene .journey-process-heading,
+      .typographic-scene .journey-stage-status) { color: var(--ink); }
+  :root[data-theme="dark"] :is(.journey-opening h1 span, .journey-ending h2 > span,
+      .journey-chapter-menu > summary > span, .journey-entry-left > .eyebrow, .journey-entry-date,
+      .journey-entry-tag, .journey-entry-right > p:not(.journey-entry-tag), .journey-entry-right > span,
+      .journey-entry-hint, .journey-process-heading > .eyebrow, .journey-card-number,
+      .journey-card-type, .journey-card-text, .journey-result-card li, .journey-results li,
+      .journey-stage-status, .journey-chapter blockquote, .journey-award-links strong,
+      .typographic-scene .journey-location > p:first-child, .typographic-scene .journey-location > span) {
+    color: var(--muted);
+  }
+  :root[data-theme="dark"] :is(.journey-scroll-link, .journey-card-link,
+      .journey-work-links > a, .journey-award-links > a) { color: var(--blue); }
+  :root[data-theme="dark"] :is(.journey-scroll-link > span, .journey-type-nodes > span,
+      .journey-stage-status button, .journey-result-card) { background: var(--control-fill); color: var(--ink); }
+  :root[data-theme="dark"] .journey-phase-nav button { color: var(--muted); }
+  :root[data-theme="dark"] :is(.journey-years > a[aria-current="true"],
+      .journey-phase-nav button[aria-current="step"]) { background: var(--selected-fill); color: var(--selected-ink); }
+  :root[data-theme="dark"] :is(.journey-scroll-link:hover > span, .journey-stage-status button:hover:not(:disabled),
+      .journey-phase-nav button:hover:not([aria-current="step"])) { background: var(--control-hover); color: var(--ink); }
+  :root[data-theme="dark"] .journey-card-image { background: var(--media-matte); }
+  :root[data-theme="dark"] .journey-type-field > span { color: #ffffff1b; }
+  :root[data-theme="dark"] .journey-type-nodes::before,
+  :root[data-theme="dark"] .journey-stage-line { background: var(--line); }
+  :root[data-theme="dark"] .journey-stage-line > span { background: var(--muted); }
+
+  @media (max-width: 760px) {
+    :root[data-theme="dark"] .header-wrap {
+      background: linear-gradient(rgb(16 16 18 / .94), rgb(16 16 18 / 0));
+    }
+  }
+
+  /* System contrast preferences still take precedence over transparency. */
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    :root[data-theme="dark"] {
+      --panel-bg: var(--surface);
+      --panel-border: var(--line);
+      --panel-blur: none;
+    }
+    #theme-toggle { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    :root[data-theme="dark"] :is(.language-toggle, .search-toggle, #back-top,
+        .honors-step, .honors-auto, #language-options),
+    :root[data-theme="dark"] dialog::backdrop {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    :root[data-theme="dark"] :is(.glass-content, .work-tile, .case-live-experience,
+        .contact-mail-surface, .contact-channel-card,
+        .contact-resume-card, .contact-profile-links > a, .contact-personal-photo) { background: var(--surface); }
+  }
+  @media (prefers-contrast: more) {
+    :root[data-theme="dark"] {
+      --muted: #d4d4da;
+      --line: #87878e;
+      --panel-shadow: none;
+      --panel-shadow-hover: none;
+    }
+  }
+  @media (forced-colors: active) {
+    :root[data-theme="dark"] {
+      --bg: Canvas;
+      --surface: Canvas;
+      --ink: CanvasText;
+      --muted: CanvasText;
+      --line: CanvasText;
+      --blue: LinkText;
+      --soft-blue: Highlight;
+      --button-fill: Highlight;
+      --button-hover: Highlight;
+      --button-ink: HighlightText;
+      --control-fill: ButtonFace;
+      --control-hover: ButtonFace;
+      --selected-fill: Highlight;
+      --selected-ink: HighlightText;
+      --media-matte: Canvas;
+      --panel-bg: Canvas;
+      --panel-border: CanvasText;
+      --panel-shadow: none;
+      --panel-shadow-hover: none;
+      --panel-blur: none;
+    }
+    :root[data-theme="dark"] :is(.header-wrap, .about-intro, .honors-stage, .work-archive, .original-case) {
+      background: Canvas;
+    }
+    :root[data-theme="dark"] .work-filter-indicator { display: none; }
+    :root[data-theme="dark"] .work-filters.has-filter-indicator .work-filter[aria-pressed="true"] {
+      background: Highlight;
+      color: HighlightText;
+    }
+    :root[data-theme="dark"] :is(.honors-step, .honors-auto, .honors-list-certificate) { color: ButtonText; }
+    :root[data-theme="dark"] .honors-list-item.is-active::before { background: transparent; }
+    :root[data-theme="dark"] .honors-list-item.is-active .honors-list-select {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+  }
+}

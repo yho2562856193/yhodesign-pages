@@ -1,0 +1,15 @@
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true" focusable="false"><defs><filter id="navigation-glass" x="0" y="0" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feImage id="navigation-map" result="geometry" preserveAspectRatio="none"/>
+<feDisplacementMap id="navigation-displacement" in="SourceGraphic" in2="geometry" scale="32" xChannelSelector="R" yChannelSelector="G" result="refracted"/>
+<feGaussianBlur in="refracted" stdDeviation="1.8" edgeMode="duplicate" result="soft-rim"/>
+<feGaussianBlur in="refracted" stdDeviation="4.2" edgeMode="duplicate" result="soft-core"/>
+<feColorMatrix in="geometry" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 1 0 0" result="core-mask"/>
+<feComposite in="soft-core" in2="core-mask" operator="in" result="core"/>
+<feComposite in="soft-rim" in2="core-mask" operator="out" result="rim"/>
+<feComposite in="core" in2="rim" operator="arithmetic" k2="1" k3="1" result="continuous-glass"/>
+<feFlood flood-color="#fafafa" flood-opacity=".32" result="core-tint"/>
+<feComposite in="core-tint" in2="core-mask" operator="in" result="feathered-tint"/>
+<feComposite in="feathered-tint" in2="continuous-glass" operator="over" result="tinted-glass"/>
+<feFlood id="navigation-tint" flood-color="#fafafa" flood-opacity=".16" result="fill"/>
+<feComposite in="fill" in2="tinted-glass" operator="over"/>
+</filter></defs></svg>

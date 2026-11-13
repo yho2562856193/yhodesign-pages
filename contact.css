@@ -1,0 +1,111 @@
+/* Contact is an action first, followed by the person and the verified facts. */
+body.contact-page{background:var(--bg)}
+.contact-profile-page{padding-top:var(--page-top);padding-bottom:32px}
+.contact-profile-opening{display:flex;align-items:baseline;justify-content:space-between;gap:30px;margin-bottom:34px}
+.contact-profile-opening h1{font-size:var(--page-title-size);line-height:1.14;letter-spacing:var(--heading-tracking);font-weight:650;margin:0;overflow-wrap:anywhere}
+.contact-profile-opening>p{font-size:var(--text-lead-size);line-height:1.6;letter-spacing:-.01em;color:var(--muted);margin:0;text-wrap:balance}
+.contact-mail-surface{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:34px 38px;border:1px solid var(--panel-border);border-radius:var(--panel-radius);background:var(--panel-bg);box-shadow:var(--panel-shadow);backdrop-filter:var(--panel-blur);-webkit-backdrop-filter:var(--panel-blur)}
+.contact-mail-address{min-width:0;flex:1}
+.contact-mail-address h2{font-size:14px;line-height:1.5;letter-spacing:0;font-weight:450;color:#6e6e73;margin:0 0 9px}
+.contact-profile-email{display:inline-block;max-width:100%;font-size:clamp(23px,2.7vw,34px);line-height:1.35;letter-spacing:-.025em;font-weight:550;color:#1d1d1f;overflow-wrap:anywhere;text-decoration-thickness:1px;text-underline-offset:7px}
+.contact-profile-email:hover{text-decoration:underline}
+.contact-profile-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex:0 0 auto}
+.contact-profile-actions .button{min-height:48px;font-size:15px;padding:12px 19px}
+.contact-profile-actions .button .icon{width:20px;height:20px}
+.contact-direct-channels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.contact-channel-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:25px 28px;border:1px solid var(--panel-border);border-radius:var(--panel-radius);background:var(--panel-bg);box-shadow:var(--panel-shadow);backdrop-filter:var(--panel-blur);-webkit-backdrop-filter:var(--panel-blur)}
+.contact-channel-card>div{min-width:0}
+.contact-channel-card h2{font-size:14px;line-height:1.5;letter-spacing:0;font-weight:450;color:#6e6e73;margin:0 0 7px}
+.contact-channel-value{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;font-size:25px;line-height:1.4;letter-spacing:-.02em;font-weight:550;font-variant-numeric:tabular-nums;color:#1d1d1f;margin:0;overflow-wrap:anywhere}
+.contact-channel-value .contact-country-code{font-size:16px;letter-spacing:0;font-weight:450;color:#6e6e73}
+.contact-channel-card .button{min-height:46px;padding:11px 16px;font-size:14px;flex-shrink:0}
+.contact-resume-downloads{margin-top:34px}
+.contact-resume-downloads>h2{font-size:25px;font-weight:600;line-height:1.3;letter-spacing:-.025em;margin:0 0 17px}
+.contact-resume-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.contact-resume-card{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:106px;padding:25px 28px;border:1px solid var(--panel-border);border-radius:var(--panel-radius);background:var(--panel-bg);box-shadow:var(--panel-shadow);backdrop-filter:var(--panel-blur);-webkit-backdrop-filter:var(--panel-blur)}
+.contact-resume-card>span{min-width:0}
+.contact-resume-card strong{display:block;font-size:21px;font-weight:550;line-height:1.4;letter-spacing:-.015em;color:#1d1d1f;overflow-wrap:anywhere}
+.contact-resume-card>span>span{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:#6e6e73}
+.contact-resume-card .icon{width:24px;height:24px;flex:none;color:#0066c0;transition:transform .2s ease-out}
+.contact-personal{display:grid;grid-template-columns:minmax(220px,310px) minmax(0,1fr);gap:60px;align-items:start;margin-top:var(--section-space);padding-bottom:60px;border-bottom:1px solid #202b3b12}
+.contact-personal-photo{margin:0;min-width:0;padding:7px;background:var(--panel-bg);border-radius:var(--panel-radius);box-shadow:var(--panel-shadow);overflow:hidden}
+.contact-personal-photo img{display:block;width:100%;height:auto;aspect-ratio:1122/1402;object-fit:contain;border-radius:var(--media-radius)}
+.contact-personal-copy{min-width:0}
+.contact-personal-copy h2{font-size:var(--section-title-size);font-weight:620;line-height:1.2;letter-spacing:var(--heading-tracking);margin:0;overflow-wrap:anywhere}
+.contact-english-name{font-size:15px;line-height:1.5;letter-spacing:.01em;color:#6e6e73;margin:8px 0 0}
+.contact-design-focus{font-size:21px;line-height:1.55;letter-spacing:-.015em;font-weight:500;color:#424248;margin:22px 0 0}
+.contact-personal-bio{font-size:var(--text-body-size);line-height:1.8;color:var(--muted);letter-spacing:-.005em;margin:18px 0 0;max-width:72ch;overflow-wrap:anywhere}
+.contact-personal-facts{display:grid;gap:18px;margin:25px 0 0;padding-top:25px;border-top:1px solid #202b3b12}
+.contact-personal-facts>div{display:grid;grid-template-columns:minmax(84px,max-content) minmax(0,1fr);gap:22px;align-items:baseline}
+.contact-personal-facts dt{font-size:14px;line-height:1.6;color:#6e6e73;font-weight:450}
+.contact-personal-facts dd{font-size:16px;line-height:1.65;color:#38383e;margin:0;overflow-wrap:anywhere}
+.contact-personal-facts dd>span{display:block;color:#6e6e73;font-size:15px;margin-top:3px}
+.contact-academic{display:flex;align-items:end;flex-wrap:wrap;gap:22px 46px;margin-top:28px;padding-top:25px;border-top:1px solid #202b3b12}
+.contact-academic>div{flex:0 1 auto;min-width:0}
+.contact-academic>div>span{display:block;font-size:13px;line-height:1.5;color:#6e6e73;margin-bottom:6px}
+.contact-academic strong{font-size:33px;font-weight:600;line-height:1.15;letter-spacing:-.03em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.contact-academic>a{display:inline-flex;align-items:center;gap:7px;min-height:44px;margin-left:auto;font-size:14px;line-height:1.45;color:#0066c0}
+.contact-academic>a .icon{width:16px;height:16px;flex-shrink:0;transition:transform .18s ease-out}
+.contact-academic>a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-academic>a:hover .icon{transform:translate(1px,-1px)}
+.contact-background{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:50px;align-items:start}
+.contact-language-panel h2{font-size:25px;font-weight:600;line-height:1.3;letter-spacing:-.025em;margin:0 0 18px}
+.contact-language-panel dl{margin:0}
+.contact-language-panel dl>div{display:grid;grid-template-columns:minmax(78px,max-content) minmax(0,1fr);gap:20px;padding:16px 0;border-top:1px solid #202b3b12;align-items:baseline}
+.contact-language-panel dt{font-size:15px;line-height:1.6;color:#44444a;font-weight:450}
+.contact-language-panel dd{font-size:15px;line-height:1.6;color:#6e6e73;margin:0;overflow-wrap:anywhere}
+.contact-profile-links{display:grid;gap:16px}
+.contact-profile-links>a{display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:104px;padding:25px 29px;border-radius:var(--panel-radius);background:var(--panel-bg);border:1px solid var(--panel-border);box-shadow:var(--panel-shadow)}
+.contact-profile-links strong{display:block;font-size:20px;line-height:1.4;letter-spacing:-.015em;font-weight:550}
+.contact-profile-links>a>span{min-width:0}
+.contact-profile-links>a>span>span{display:block;color:#6e6e73;font-size:14px;line-height:1.55;margin-top:6px;overflow-wrap:anywhere}
+.contact-profile-links .icon{width:20px;height:20px;color:#6e6e73;flex:none;transition:transform .2s ease-out}
+@media(hover:hover) and (pointer:fine){.contact-profile-links>a:hover .icon{transform:translate(2px,-2px)}.contact-resume-card:hover .icon{transform:translateY(2px)}}
+@media(max-width:1100px){.contact-mail-surface{align-items:flex-start;flex-direction:column;gap:22px}.contact-personal{grid-template-columns:minmax(190px,260px) minmax(0,1fr);gap:40px}.contact-personal-facts>div{gap:16px}.contact-background{gap:42px}.contact-academic{gap:20px 32px}.contact-academic>a{margin-left:0;flex-basis:100%}}
+@media(max-width:760px){
+  .contact-profile-page{padding-bottom:16px}
+  .contact-profile-opening{align-items:flex-start;flex-direction:column;gap:13px;margin-bottom:25px}
+  .contact-mail-surface{padding:24px;gap:20px}
+  .contact-mail-address h2{font-size:13px;margin-bottom:8px}
+  .contact-profile-email{font-size:23px;line-height:1.4}
+  .contact-profile-actions{gap:9px;width:100%}
+  .contact-profile-actions .button{font-size:14px;min-height:46px;padding:11px 16px}
+  .contact-direct-channels{grid-template-columns:1fr;gap:12px;margin-top:12px}
+  .contact-channel-card{padding:22px 24px;gap:16px}
+  .contact-channel-card h2{font-size:13px}
+  .contact-channel-value{font-size:23px}
+  .contact-channel-card .button{font-size:13px;padding-inline:14px}
+  .contact-resume-downloads{margin-top:28px}
+  .contact-resume-downloads>h2{font-size:24px;margin-bottom:15px}
+  .contact-resume-grid{grid-template-columns:1fr;gap:12px}
+  .contact-resume-card{min-height:98px;padding:22px 24px;gap:20px}
+  .contact-resume-card strong{font-size:20px}
+  .contact-resume-card>span>span{font-size:13px}
+  .contact-personal{grid-template-columns:1fr;gap:32px;padding-bottom:36px}
+  .contact-personal-photo{width:min(280px,80%);padding:6px;justify-self:start}
+  .contact-english-name{font-size:14px}
+  .contact-design-focus{font-size:20px;margin-top:18px}
+  .contact-personal-bio{margin-top:16px}
+  .contact-personal-facts{gap:16px;margin-top:22px;padding-top:22px}
+  .contact-personal-facts>div{grid-template-columns:minmax(72px,max-content) minmax(0,1fr);gap:14px}
+  .contact-personal-facts dt{font-size:13px}
+  .contact-personal-facts dd{font-size:15px}
+  .contact-personal-facts dd>span{font-size:14px}
+  .contact-academic{margin-top:23px;padding-top:22px;gap:22px 38px}
+  .contact-academic strong{font-size:31px}
+  .contact-academic>a{font-size:14px;flex-basis:100%}
+  .contact-background{grid-template-columns:1fr;gap:30px;margin-top:34px}
+  .contact-language-panel h2{font-size:24px;margin-bottom:16px}
+  .contact-language-panel dl>div{grid-template-columns:minmax(70px,max-content) minmax(0,1fr);gap:17px;padding:14px 0}
+  .contact-language-panel dt,.contact-language-panel dd{font-size:14px}
+  .contact-profile-links{gap:12px}
+  .contact-profile-links>a{min-height:96px;padding:22px 24px}
+  .contact-profile-links strong{font-size:19px}
+  .contact-profile-links>a>span>span{font-size:14px}
+}
+@media(max-width:359px){.contact-mail-surface{padding-inline:21px}.contact-profile-email{font-size:21px}.contact-profile-actions .button{font-size:13px;padding-inline:13px}.contact-personal-facts>div{grid-template-columns:1fr;gap:5px}}
+@media(max-width:380px){.contact-profile-email{font-size:clamp(18px,5.85vw,21px)}}
+@media(prefers-reduced-motion:reduce){.contact-profile-links>a,.contact-profile-links .icon,.contact-resume-card,.contact-resume-card .icon,.contact-academic>a .icon{transition:none}.contact-profile-links>a:hover,.contact-profile-links>a:active,.contact-profile-links>a:hover .icon,.contact-resume-card:hover,.contact-resume-card:active,.contact-resume-card:hover .icon,.contact-academic>a:hover .icon{transform:none}}
+@media(prefers-reduced-transparency:reduce){.contact-mail-surface,.contact-channel-card,.contact-resume-card,.contact-profile-links>a{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}.contact-personal-photo{background:#fff}}
+@media(prefers-contrast:more){.contact-profile-opening>p,.contact-mail-address h2,.contact-channel-card h2,.contact-country-code,.contact-resume-card>span>span,.contact-personal-bio,.contact-personal-facts dt,.contact-personal-facts dd>span,.contact-academic>div>span,.contact-language-panel dd,.contact-profile-links>a>span>span{color:#45454b}.contact-mail-surface,.contact-channel-card,.contact-resume-card,.contact-personal-photo,.contact-profile-links>a{background:#fff;border:1px solid #888;box-shadow:none;backdrop-filter:none}.contact-personal,.contact-personal-facts,.contact-academic,.contact-language-panel dl>div{border-color:#888}}
+@media(forced-colors:active){.contact-mail-surface,.contact-channel-card,.contact-resume-card,.contact-personal-photo,.contact-profile-links>a{background:Canvas;border:1px solid CanvasText;color:CanvasText;box-shadow:none;backdrop-filter:none}.contact-profile-page a,.contact-resume-card strong,.contact-resume-card>span>span,.contact-resume-card .icon{color:LinkText}.contact-profile-page button{border:1px solid ButtonText}.contact-personal-photo img{forced-color-adjust:none}}

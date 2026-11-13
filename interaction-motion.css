@@ -1,0 +1,42 @@
+:root{
+  --motion-duration-short:180ms;
+  --motion-ease-out:cubic-bezier(.22,.75,.26,1);
+}
+.work-filters{position:relative;isolation:isolate}
+.work-filter-indicator{
+  position:absolute;transform-origin:top left;pointer-events:none;z-index:0;
+  border-radius:999px;background:#fff;box-shadow:0 1px 6px #1d1d1f16,inset 0 1px 0 #fff;
+}
+.work-filters.has-filter-indicator .work-filter{position:relative;z-index:1}
+.work-filters.has-filter-indicator .work-filter[aria-pressed=true]{background:transparent;color:var(--blue)}
+#language-options:not([hidden]){
+  transform-origin:top right;animation:menu-arrival var(--motion-duration-short) var(--motion-ease-out);
+}
+#search-dialog[open]{animation:search-arrival var(--motion-duration-short) var(--motion-ease-out)}
+#search-dialog::backdrop{animation:search-backdrop var(--motion-duration-short) var(--motion-ease-out)}
+@keyframes menu-arrival{from{opacity:0;transform:translateY(-4px) scale(.98)}}
+@keyframes search-arrival{from{opacity:0;transform:translateY(-4px)}}
+@keyframes search-backdrop{from{opacity:0}}
+.text-button:has(>.copy-check),.button:has(>.copy-check){position:relative}
+.copy-check{
+  position:absolute;inset-inline-end:-4px;top:-4px;pointer-events:none;
+  display:grid;place-items:center;width:17px;height:17px;border-radius:50%;
+  color:white;background:var(--blue);box-shadow:0 0 0 2px var(--bg);
+  animation:copy-arrival 160ms var(--motion-ease-out);
+}
+.copy-check>.icon{width:12px;height:12px}
+@keyframes copy-arrival{from{opacity:0;transform:scale(.8)}}
+#image-dialog.viewer-in-flight{overflow:visible}
+.viewer-flight{
+  position:fixed;z-index:2;pointer-events:none;max-width:none;max-height:none;
+  object-fit:contain;transform-origin:top left;
+}
+.lightbox-scroll.zoomed{cursor:auto}
+.lightbox-scroll:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+@media(prefers-reduced-motion:reduce){
+  #language-options:not([hidden]),#search-dialog[open],#search-dialog::backdrop,.copy-check{animation:none}
+}
+@media(forced-colors:active){
+  .work-filters.has-filter-indicator .work-filter[aria-pressed=true]{background:Highlight;color:HighlightText}
+  .work-filter-indicator{display:none}
+}

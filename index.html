@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <script>
+    (() => {
+      let preferred;
+      try { preferred = localStorage.getItem('portfolio-theme'); } catch {}
+      const theme = preferred === 'light' || preferred === 'dark'
+        ? preferred : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#101012' : '#f5f5f7';
+    })();
+  </script>
+  <meta name="description" content="叶昊聪的个人设计作品集。以工业设计为起点，连接产品、交互与服务，记录 More Coffee、Lumo、CampLoop 和真实生活中的设计实践。">
+  <meta property="og:title" content="叶昊聪 · 设计与日常">
+  <meta property="og:description" content="从生活出发，让设计自然发生。探索叶昊聪的作品、经历与设计思考。">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="glass.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="honors.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="work.css">
+  <link rel="stylesheet" href="work-gallery.css">
+  <link rel="stylesheet" href="work-navigation.css">
+  <link rel="stylesheet" href="about-profile.css">
+  <link rel="stylesheet" href="about-motion.css">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="journey.css">
+  <link rel="stylesheet" href="ui-details.css">
+  <link rel="stylesheet" href="interaction-motion.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  <title>叶昊聪 · 设计与日常</title>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <header class="header-wrap">
+    <div class="header shell">
+      <a class="brand" href="#/" aria-label="yhodesign，返回首页"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M5 11 20 3 35 11 20 19Z"/><path d="M5 14 18 21V31L22 29V21L35 14V29L20 37 5 29Z"/></svg></span><span class="brand-name">yhodesign</span></a>
+      <nav class="nav" aria-label="主导航">
+        <span class="nav-selection" aria-hidden="true"></span>
+        <a href="#/" data-nav="home" aria-current="page"><span data-icon="home"></span><span>首页</span></a>
+        <a href="#/work" data-nav="work"><span data-icon="work"></span><span>作品</span></a>
+        <a href="#/journey" data-nav="journey"><span data-icon="article"></span><span>经历</span></a>
+        <a href="#/honors" data-nav="honors"><span data-icon="bookmark"></span><span>荣誉</span></a>
+        <a href="#/about" data-nav="about"><span data-icon="about"></span><span>关于</span></a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-picker">
+          <button id="language-toggle" class="language-toggle" type="button" aria-label="选择语言" aria-controls="language-options" aria-expanded="false">简</button>
+          <div id="language-options" class="language-options" role="group" aria-label="选择语言" hidden>
+            <button type="button" data-locale="zh" lang="zh-CN" aria-pressed="true">简体中文</button>
+            <button type="button" data-locale="zh-HK" lang="zh-HK" aria-pressed="false">繁體中文（香港）</button>
+            <button type="button" data-locale="en" lang="en" aria-pressed="false">English</button>
+          </div>
+        </div>
+        <button id="theme-toggle" class="icon-button theme-toggle" type="button" aria-label="暗夜模式" aria-pressed="false"><span class="theme-symbol" aria-hidden="true"></span></button>
+        <button class="icon-button search-toggle" aria-label="搜索网站" title="搜索（Ctrl/⌘ K）"><span data-icon="search"></span></button>
+        <a class="contact-pill" href="#/contact">联系我<span aria-hidden="true"> ↗</span></a>
+      </div>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1"><div id="app"></div><noscript><div class="no-script"><h1>叶昊聪 · 设计与日常</h1><p>请开启 JavaScript 查看作品与经历。</p><a href="mailto:yho2562856193@gmail.com">联系我</a></div></noscript></main>
+  <footer id="footer"></footer>
+  <dialog id="search-dialog" aria-labelledby="search-title">
+    <div class="search-head"><span data-icon="search"></span><label class="sr-only" id="search-title" for="site-search">搜索作品、经历与荣誉</label><input id="site-search" type="search" placeholder="搜索作品、经历、荣誉或关键词…" autocomplete="off"><button class="mini-button" data-close="search-dialog" aria-label="关闭搜索">Esc</button></div>
+    <div id="search-results" class="search-results" aria-live="polite"></div><p class="search-hint">输入关键词搜索 · Enter 打开首条结果 · Esc 关闭</p>
+  </dialog>
+  <dialog id="image-dialog" aria-label="图片查看器">
+    <div class="lightbox-top"><p id="image-caption"></p><div><a id="image-download" class="icon-button" download aria-label="下载当前图片"><span data-icon="download"></span></a><button class="icon-button" data-close="image-dialog" aria-label="关闭图片"><span data-icon="close"></span></button></div></div>
+    <div class="lightbox-stage"><button id="image-prev" class="icon-button" aria-label="上一张图片"><span data-icon="chevron-left"></span></button><div class="lightbox-scroll" role="region" aria-label="图片查看器" tabindex="-1"><img id="lightbox-image" alt=""></div><button id="image-next" class="icon-button" aria-label="下一张图片"><span data-icon="chevron-right"></span></button></div>
+    <div class="lightbox-bottom"><span id="image-count" aria-live="polite" aria-atomic="true"></span><button class="text-button" id="image-zoom">放大查看</button><span class="keyboard-hint">← → 切换 · Esc 关闭</span></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <button class="back-top icon-button" id="back-top" aria-label="回到页面顶部" hidden><span data-icon="arrow-up"></span></button>
+  <svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true" focusable="false"><defs><filter id="navigation-glass" x="0" y="0" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feImage id="navigation-map" result="geometry" preserveAspectRatio="none"/>
+<feDisplacementMap id="navigation-displacement" in="SourceGraphic" in2="geometry" scale="32" xChannelSelector="R" yChannelSelector="G" result="refracted"/>
+<feGaussianBlur in="refracted" stdDeviation="1.8" edgeMode="duplicate" result="soft-rim"/>
+<feGaussianBlur in="refracted" stdDeviation="4.2" edgeMode="duplicate" result="soft-core"/>
+<feColorMatrix in="geometry" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 1 0 0" result="core-mask"/>
+<feComposite in="soft-core" in2="core-mask" operator="in" result="core"/>
+<feComposite in="soft-rim" in2="core-mask" operator="out" result="rim"/>
+<feComposite in="core" in2="rim" operator="arithmetic" k2="1" k3="1" result="continuous-glass"/>
+<feFlood flood-color="#fafafa" flood-opacity=".32" result="core-tint"/>
+<feComposite in="core-tint" in2="core-mask" operator="in" result="feathered-tint"/>
+<feComposite in="feathered-tint" in2="continuous-glass" operator="over" result="tinted-glass"/>
+<feFlood id="navigation-tint" flood-color="#fafafa" flood-opacity=".16" result="fill"/>
+<feComposite in="fill" in2="tinted-glass" operator="over"/>
+</filter></defs></svg>
+
+  <script type="module" src="app.js"></script>
+  <script type="module" src="glass.js"></script>
+</body>
+</html>
